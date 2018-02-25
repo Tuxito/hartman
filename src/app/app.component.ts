@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  toggleSideBar(event) {
+    //$('#sidebar').toggleClass('active');
+    
+    console.log(event);
+  }
 }
