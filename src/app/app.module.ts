@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AlertModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
+import { SideBar } from './sidebar/sidebar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SideBar
   ],
   imports: [
     AlertModule.forRoot(),

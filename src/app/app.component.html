@@ -1,25 +1,24 @@
 <div class="wrapper">
+  
+  <sidebar></sidebar>
 
-  <nav id="sidebar">
-      <!-- Sidebar Header -->
-      <div class="sidebar-header">
-          <img src="assets/images/hartmanLogo.png">
+  <div id="content" style="width : 100%">
+      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" (click)="toggleSideBar()">        
+          &lt;
+      </button>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
+        </div>
       </div>
-
-      <!-- Sidebar Links -->
-      <ul class="list-unstyled components">
-          <li class="active"><a href="#">Health Checks</a></li>
-          <li><a href="#">Squad</a></li>         
-          <li><a href="#">Gears</a></li>          
-      </ul>
-  </nav>
-
-  <div id="content">
-    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" (click)="toggleSideBar($event)">
-        <i class="glyphicon glyphicon-align-left"></i>
-        Toggle Sidebar
-    </button>
   <div>
-
 </div>
-
