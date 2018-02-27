@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'sidebar',
@@ -6,10 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 
-export class SideBarComponent {  
-  sideBarInactive = false;
-
-  toggleSideBar(){
-    this.sideBarInactive = !this.sideBarInactive;
-  }
+export class SideBarComponent {
+  @Input() sideBarInactive: boolean = false;
 }
