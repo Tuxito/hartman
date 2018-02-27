@@ -3,24 +3,10 @@
   <sidebar [sideBarInactive]="sideBarInactive"></sidebar>
 
   <div id="content" style="width : 100%">
-      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" (click)="toggleSideBar()">
-          &lt;
+      <button [value]="test" type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" (click)="toggleSideBar()">
+        {{btnLabel}}   
       </button>
 
       <router-outlet></router-outlet>
   <div>
 </div>
-
-<!-- <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        One of three columns
-      </div>
-      <div class="col-sm">
-        One of three columns
-      </div>
-      <div class="col-sm">
-        One of three columns
-      </div>
-    </div>
-  </div> -->
