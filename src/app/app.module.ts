@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AlertModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { HealthChecksComponent } from './healthChecks/healthChecks.component';
 import { SquadsComponent } from './squads/squads.component';
 import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 
+import { GearsService } from './gears/shared/gears.service';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -34,10 +36,11 @@ const appRoutes: Routes = [
   ],
   imports: [
     AlertModule.forRoot(),
-    BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    BrowserModule,    
+    RouterModule.forRoot(appRoutes),
+    HttpModule
   ],
-  providers: [],
+  providers: [GearsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
