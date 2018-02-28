@@ -8,13 +8,7 @@ export class GearsService {
 
   // Get all posts from the API
   getAllGears() {
-    console.log("entrando en gears.service");
-
-    var gearInfo = this.http.get('/api/gears')
+    return = this.http.get('/api/gears')
       .map(res => res.json());
-    
-      console.log(gearInfo);
-
-      return gearInfo
   }
 }

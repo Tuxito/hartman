@@ -21,8 +21,6 @@ router.get('/', (req, res) => {
 router.get('/gears', (req, res) => {
   // Get posts from the mock api
   // This should ideally be replaced with a service that connects to MongoDB
-  console.log("gears : " + gear.title);
-
   res.status(200).json(gear);
  
 });

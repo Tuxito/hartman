@@ -13,8 +13,6 @@ export class GearsComponent implements OnInit{
   constructor(private gearsService: GearsService) { }
 
   ngOnInit() {
-    console.log("entrando en oninit");
-    
     // Retrieve posts from the API
     this.gearsService.getAllGears().subscribe(gears => {      
       this.gears = gears;
