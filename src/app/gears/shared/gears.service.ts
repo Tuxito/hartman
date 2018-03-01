@@ -8,7 +8,7 @@ export class GearsService {
 
   // Get all posts from the API
   getAllGears() {
-    return = this.http.get('/api/gears')
+    return this.http.get('/api/gears')
       .map(res => res.json());
   }
 }
