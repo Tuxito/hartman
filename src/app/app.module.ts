@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     AlertModule.forRoot(),
-    BrowserModule,    
+    BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],

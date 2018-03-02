@@ -8,12 +8,12 @@ import { SideBarComponent } from './sidebar/sidebar.component';
 })
 export class AppComponent {
   title = 'app';
-  sideBarInactive: boolean = false;
+  sideBarInactive = false;
   btnLabel = '<';
 
   toggleSideBar() {
     this.sideBarInactive = !this.sideBarInactive;
 
-    this.sideBarInactive? this.btnLabel = '>' : this.btnLabel = '<'; 
+    this.sideBarInactive ? this.btnLabel = '>' : this.btnLabel = '<';
   }
 }

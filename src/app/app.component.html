@@ -1,9 +1,9 @@
 <div class="wrapper">
 
-  <sidebar [sideBarInactive]="sideBarInactive"></sidebar>
+  <app-sidebar [sideBarInactive]="sideBarInactive"></app-sidebar>
 
   <div id="content" style="width : 100%">
-      <button [value]="test" type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" (click)="toggleSideBar()">
+      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" (click)="toggleSideBar()">
         {{btnLabel}}   
       </button>
 
