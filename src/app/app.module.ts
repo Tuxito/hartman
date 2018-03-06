@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpModule, } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AlertModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
@@ -14,7 +15,7 @@ import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 import { GearsService } from './gears/shared/gears.service';
 
 import { RouterModule, Routes } from '@angular/router';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'healthChecks', component: HealthChecksComponent },
@@ -37,8 +38,10 @@ const appRoutes: Routes = [
   imports: [
     AlertModule.forRoot(),
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   providers: [GearsService],
   bootstrap: [AppComponent]

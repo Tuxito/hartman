@@ -1,2 +1,29 @@
-SQUADS
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-md-6 mb-3">        
+                <label for="exampleInputEmail1">Squad Name</label>
+                <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputName" placeholder="Enter squad name" [(ngModel)]="squadName" required>
+            </div>
+        </div>          
+    
+        <button type="button" class="btn btn-primary" (click)="createSquad()">Create Squad</button>
+    </form>
+
+    <h2 class=py-5>Squads</h2>
+        
+    <table class="table table-hover">
+        <thead>
+                <tr>
+                    <th>Squad Name</th>           
+                </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let squad of squads">
+               <td>{{squad}}</td>            
+            </tr>
+        </tbody>            
+    </table>
+</div>
+
 

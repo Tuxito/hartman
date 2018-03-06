@@ -14,8 +14,10 @@ export class GearsComponent implements OnInit {
 
   ngOnInit() {
     // Retrieve posts from the API
+    /*
     this.gearsService.getAllGears().subscribe(gears => {
       this.gears = gears;
     });
+    */
   }
 }

@@ -4,20 +4,23 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
+const mongoose = require('./server/config/connection');
+
 // Get our API routes
-const api = require('./server/routes/api');
+// const api = require('./server/routes/api');
+const squadsApi = require('./server/controller/SquadController');
 
 const app = express();
 
 // Parsers for POST data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
-app.use('/api', api);
+app.use('/squads', squadsApi);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
