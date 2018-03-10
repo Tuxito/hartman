@@ -1,1 +1,43 @@
-{{gears.title}}
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-md-6 mb-3">        
+                <label for="inputName">Gear Name</label>
+                <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputName" placeholder="Enter gear name" [(ngModel)]="gearName" required>
+            </div>
+            <div class="col-md-6 mb-3">        
+                <label for="inputEmail">Email</label>
+                <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputEmail" placeholder="Enter email" [(ngModel)]="gearEmail" required>
+            </div>
+            
+        </div> 
+        
+        <div class="row">
+            <div class="col-md-6 mb-3">        
+                <label for="inputEmail">Squad</label>
+                <select #selectElem>
+                    <option *ngFor="let squad of squads" [value]="squad">
+                        {{squad}}
+                    </option>
+                </select>
+            </div>
+        </div> 
+    
+        <button type="button" class="btn btn-success" (click)="createGear()">Create Gear</button>
+    </form>
+
+    <h2 class=py-5>Gears</h2>
+        
+    <!-- <table class="table table-hover">
+        <thead>
+                <tr>
+                    <th>Gear Name</th>           
+                </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let gear of gears">
+               <td>{{gear}}</td>            
+            </tr>
+        </tbody>            
+    </table> -->
+</div>

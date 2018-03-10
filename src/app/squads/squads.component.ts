@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class SquadsComponent implements OnInit{
   squadName: String;
 
-  squads: String[] = ['Mr. Nice', 'Second name', 'Bombasto', 'Dr. IQ'];
+  squads: String[];
 
   constructor(private http: HttpClient) {
   }
