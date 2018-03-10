@@ -16,17 +16,21 @@ export class SquadsComponent implements OnInit{
   }
 
   ngOnInit() {
-    /*this.http.get('http://localhost:3000/squads/').subscribe(res => {
-      console.log(res);
+    this.http.get('http://localhost:3000/squads/').subscribe(res => {
+      this.squads = Object.keys(res).map(function(personNamedIndex){
+        let person = res[personNamedIndex].name;
+        // do something with person
+        return person;
+      });
     },
     err => {
       console.log('Error occured');
-    });*/
+    });
   }
 
   createSquad(event) {
     this.http.post('http://localhost:3000/squads/', { squadName : this.squadName}).subscribe(res => {
-      console.log(res);
+      this.squads.push(this.squadName);
     },
     err => {
       console.log('Error occured');

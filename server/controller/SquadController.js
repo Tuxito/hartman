@@ -25,6 +25,9 @@ router.post('/', function (req, res) {
         });
 });
 
+/**
+ * Method to retrieve all the squads
+ */
 router.get('/',function (req, res) {
     console.log('getting squads list'); 
 
