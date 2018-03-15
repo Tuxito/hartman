@@ -10,6 +10,7 @@ import { SideBarComponent } from './sidebar/sidebar.component';
 import { GearsComponent } from './gears/gears.component';
 import { HealthChecksComponent } from './healthChecks/healthChecks.component';
 import { SquadsComponent } from './squads/squads.component';
+import { SquadDetailComponent } from './squad-detail/squad-detail.component';
 import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 
 import { GearsService } from './gears/shared/gears.service';
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const appRoutes: Routes = [
   { path: 'healthChecks', component: HealthChecksComponent },
   { path: 'squads',      component: SquadsComponent },
+  { path: 'squads/detail/:id', component: SquadDetailComponent },
   { path: 'gears',      component: GearsComponent },
   { path: '',    redirectTo: '/healthChecks',    pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
@@ -33,6 +35,7 @@ const appRoutes: Routes = [
     GearsComponent,
     HealthChecksComponent,
     SquadsComponent,
+    SquadDetailComponent,
     PageNotFoundComponent
   ],
   imports: [
