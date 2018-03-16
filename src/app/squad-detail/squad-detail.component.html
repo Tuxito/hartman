@@ -1,41 +1,42 @@
 <div class="container">
-    
-    <div class="row">
-        <div class="col-3">
-            <img src="https://bergento.no/wp-content/uploads/2016/02/profile_and_logo_icon-300x300.png" 
-                 style="max-width:250px;  max-height:250px;" class="figure-img img-fluid rounded" alt="Squad logo">
+    <form>
+        <div class="row">
+            <div class="col-3">
+                <img src="https://bergento.no/wp-content/uploads/2016/02/profile_and_logo_icon-300x300.png" 
+                    style="max-width:250px;  max-height:250px;" class="figure-img img-fluid rounded" alt="Squad logo">
+            </div>
+            <div class="col-9">
+                <div class="row pt-4 pb-3">
+                    <label for="squadName">Squad Name</label>
+                    <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputName" placeholder="Enter squad name" [(ngModel)]="squad.name" required>
+                </div>
+                <div class="row">
+                    <label for="summary">Description</label>
+                    <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputName" placeholder="Description" [(ngModel)]="squad.description">
+                </div>
+            </div>
         </div>
-        <div class="col-9">
-            <div class="row pt-4 pb-3">
-                <label for="squadName">Squad Name</label>
-                <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputName" placeholder="Enter squad name" [(ngModel)]="squad.name" required>
-            </div>
-            <div class="row">
-                <label for="summary">Description</label>
-                <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputName" placeholder="Description" [(ngModel)]="squad.description">
-            </div>
-        </div>
-    </div>
-    
-    <div class="row pb-3">
-            <div class="col-6">
-                Project
-            </div>
-            
-            <div class="col-6">
-                Components
-            </div>
-    </div>
-
-    <div class="row">
-        <div class="col-2">
-            <button class="btn btn-success" (click)="goBack()">Go back</button>
+        
+        <div class="row pb-3">
+                <div class="col-6">
+                    Project
+                </div>
+                
+                <div class="col-6">
+                    Components
+                </div>
         </div>
 
-        <div class="col-2">
-            <button class="btn btn-success" (click)="updateSquad()">Save</button>
-        </div>        
-    </div>
+        <div class="row">
+            <div class="col-2">
+                <button class="btn btn-success" (click)="goBack()">Go back</button>
+            </div>
+
+            <div class="col-2">
+                <button type="button" class="btn btn-success" (click)="updateSquad()">Save</button>
+            </div>        
+        </div>
+    </form>
 </div>
 
 

@@ -54,9 +54,11 @@ router.get('/:id', function(req, res, next) {
 /**
  * Function to update an existing squad
  */
-router.put('/', function(req, res, next){
-    console.log('Updating squad ' + req.squad.name);     
-    //Squad.findByIdAndUpdate({},{});
+router.put('/:id', function(req, res){
+    // TODO : Finish update operation
+    console.log('Updating squad ' + req.body.squad.description);  
+    Squad.findByIdAndUpdate({},{}); 
+    res.status(200);  
 });
 
 

@@ -45,9 +45,9 @@ export class SquadDetailComponent implements OnInit{
    * Function to update the squad details
    */
   updateSquad(){
-      console.log('Updating component ' + this.squad.description);
-
-      this.squadService.updateSquad(this.squad);
+    this.squadService.updateSquad(this.squad).subscribe(newSquad => {
+      console.log('Squad updated');      
+    });
   }
 
   goBack(): void {
