@@ -8,11 +8,11 @@
         <div class="col-9">
             <div class="row pt-4 pb-3">
                 <label for="squadName">Squad Name</label>
-                <input class="form-control" id="inputName" placeholder="Enter squad name" required>
+                <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputName" placeholder="Enter squad name" [(ngModel)]="squad.name" required>
             </div>
             <div class="row">
                 <label for="summary">Description</label>
-                <input class="form-control" id="inputName" placeholder="Description" required>
+                <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputName" placeholder="Description" [(ngModel)]="squad.description">
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="col-2">
-            <button class="btn btn-success" (click)="goBack()">Save</button>
+            <button class="btn btn-success" (click)="updateSquad()">Save</button>
         </div>        
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Squad } from './squad';
+import { SquadService } from './../services/squad.service';
 
 @Component({
   selector: 'app-squads',
@@ -10,25 +11,23 @@ import { Squad } from './squad';
 
 export class SquadsComponent implements OnInit{
   squadName: String;
-  squads: Squad[];
+  squads: any[];
   
-  squadSelected: String;
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(
+    private http: HttpClient,
+    private squadService : SquadService
+  ) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/squads/').subscribe(res => {
-      this.squads = Object.keys(res).map(function(squadIndex){
-        let squad = new Squad();
-        squad.id = res[squadIndex]._id;
-        squad.name = res[squadIndex].name;        
-       
-        return squad;
-      });      
-    },
-    err => {
-      console.log('Error occured');
+    this.getSquads();
+  }
+
+  /**
+   * Function to retrieve the squad list
+   */
+  getSquads(){
+    this.squadService.getSquads().subscribe(data => {
+      this.squads = data;
     });
   }
 
@@ -36,21 +35,18 @@ export class SquadsComponent implements OnInit{
    * Function to create a new squad. Squadname is given
    * @param event 
    */
-  createSquad(event) {
-    this.http.post('http://localhost:3000/squads/', { squadName : this.squadName}).subscribe(res => {
-      //this.squads.push(this.squadName);
-    },
-    err => {
-      console.log('Error occured');
+  createSquad() {
+    this.squadService.createSquad(this.squadName).subscribe(newSquad => {
+      console.log('New Squad : ' + newSquad);
+      this.squads.push(newSquad);
     });
-  }
 
-  /**
-   * Function to navigate to the squad details
-   * @param squadSelected 
-   */
-  loadSquadDetail(squadSelected : Squad){
-    console.log(squadSelected);
+    //this.http.post('http://localhost:3000/squads/', { squadName : this.squadName}).subscribe(res => {
+    //console.log(res);  
+    //this.squads.push(this.squadName);
+    //},
+    //err => {
+    //  console.log('Error occured');
+    //});
   }
-
 }

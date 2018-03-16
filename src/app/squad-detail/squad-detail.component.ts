@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+
+import { Squad } from '../squads/squad';
+import { SquadService } from '../services/squad.service';
+
 
 @Component({
   selector: 'app-squad-detail',
@@ -9,15 +14,40 @@ import { Location } from '@angular/common';
 })
 
 export class SquadDetailComponent implements OnInit{
-  squadId : String;
+
+  squad : Squad = new Squad();
 
   constructor(
     private route: ActivatedRoute,
-    private location : Location
+    private location : Location,
+    private http: HttpClient,
+    private squadService : SquadService
   ) {}
 
   ngOnInit(): void {
-    this.squadId = this.route.snapshot.paramMap.get('id');
+    this.getSquad();
+  }
+
+  /**
+   * Function to retrieve the squad data and load it in the squad
+   * object to show it in the view
+   */
+  getSquad(){
+      let id = this.route.snapshot.paramMap.get('id');
+
+      this.squadService.getSquad(id).subscribe(data => {      
+        this.squad.id = data._id;
+        this.squad.name = data.name;
+      });
+  }
+
+  /**
+   * Function to update the squad details
+   */
+  updateSquad(){
+      console.log('Updating component ' + this.squad.description);
+
+      this.squadService.updateSquad(this.squad);
   }
 
   goBack(): void {

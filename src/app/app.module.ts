@@ -14,6 +14,8 @@ import { SquadDetailComponent } from './squad-detail/squad-detail.component';
 import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 
 import { GearsService } from './gears/shared/gears.service';
+import { SquadService } from './services/squad.service';
+
 
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -46,7 +48,7 @@ const appRoutes: Routes = [
     HttpModule,
     HttpClientModule
   ],
-  providers: [GearsService],
+  providers: [GearsService, SquadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
