@@ -34,10 +34,11 @@ export class SquadDetailComponent implements OnInit{
    */
   getSquad(){
       let id = this.route.snapshot.paramMap.get('id');
-
+      
       this.squadService.getSquad(id).subscribe(data => {      
         this.squad.id = data._id;
         this.squad.name = data.name;
+        this.squad.description = data.description;
       });
   }
 
@@ -45,6 +46,7 @@ export class SquadDetailComponent implements OnInit{
    * Function to update the squad details
    */
   updateSquad(){
+    console.log('Squad : ' + JSON.stringify(this.squad));     
     this.squadService.updateSquad(this.squad).subscribe(newSquad => {
       console.log('Squad updated');      
     });

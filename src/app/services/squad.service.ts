@@ -40,6 +40,7 @@ export class SquadService {
    * @param squad 
    */
   updateSquad(squad : Squad){
+    console.log('Squad updated ' + squad.id);      
     return this.http.put('http://localhost:3000/squads/' + squad.id, { squad : squad})
         .map((response: Response) => response.json());  
   }
