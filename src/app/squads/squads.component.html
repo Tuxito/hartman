@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6 mb-3">        
                 <label for="exampleInputEmail1">Squad Name</label>
-                <input [ngModelOptions]="{standalone: true}" class="form-control" id="inputName" placeholder="Enter squad name" [(ngModel)]="squadName" required>
+                <input [ngModelOptions]="{standalone: true}" class="form-control" name="squadName" id="squadName" placeholder="Enter squad name" [(ngModel)]="squadName" required>
             </div>
         </div>          
     
@@ -22,7 +22,7 @@
             <tr *ngFor="let squad of squads">
                <td>
                    <a routerLink="detail/{{squad._id}}">
-                     {{squad.name}}
+                     <span>{{squad.name}}</span>
                   </a>
                </td>            
             </tr>

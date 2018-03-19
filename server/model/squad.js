@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');  
 
 var SquadSchema = new mongoose.Schema({  
-  name: String
+  name: { type: String, required: true },
+  description : String,
 });
 
 mongoose.model('SquadSchema', SquadSchema);

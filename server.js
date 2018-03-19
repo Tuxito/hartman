@@ -9,6 +9,7 @@ const mongoose = require('./server/config/connection');
 // Get our API routes
 // const api = require('./server/routes/api');
 const squadsApi = require('./server/controller/SquadController');
+const topicsApi = require('./server/controller/TopicController');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 app.use('/squads', squadsApi);
+//app.use('/topics', topicsApi);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

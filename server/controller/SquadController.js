@@ -59,14 +59,12 @@ router.put('/:id', function(req, res){
 
     Squad.findById(id, function (err, squad) {
         if (err) return handleError(err);
-      
-        squad.name = req.body.squad.name;
-        squad.description = req.body.squad.description;
-        console.log('Updating squad : ' + id + " - " + squad.name + " - " + squad.description);
-
+              
+        squad.set({ name: req.body.squad.name });
+        squad.set({ description: req.body.squad.description });
         squad.save(function (err, updatedSquad) {
-          if (err) return handleError(err);
-          res.send(updatedSquad);
+            if (err) return handleError(err);
+            res.send(updatedSquad);
         });
     });
 });

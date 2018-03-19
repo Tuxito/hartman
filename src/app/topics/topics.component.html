@@ -1,0 +1,38 @@
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-md-6 mb-3">        
+                <label for="topicName">Topic name</label>
+                <input [ngModelOptions]="{standalone: true}" class="form-control" name="topicName" id="topicName" placeholder="Enter topic name" [(ngModel)]="topicName" required>
+            </div>
+            <div class="col-md-6 mb-3">        
+                <label for="topicDescription">Topic description</label>
+                <input [ngModelOptions]="{standalone: true}" class="form-control" name="topicDescription" id="topicDescription" placeholder="Enter topic description" [(ngModel)]="topicDescription" required>
+            </div>                
+        </div>      
+
+    
+        <button type="button" class="btn btn-success" (click)="createTopic()">Create Topic</button>
+    </form>
+
+    <h2 class=py-5>Topics</h2>
+        
+    <table  class="table table-hover">
+        <thead>
+                <tr>
+                    <th>Topic Name</th>           
+                </tr>
+        </thead>
+        <tbody class="sortable">
+            <tr *ngFor="let topic of topics">
+               <td>
+                   <a routerLink="detail/{{topic._id}}">
+                     <span>{{topic.name}}</span>
+                  </a>
+               </td>            
+            </tr>
+        </tbody>            
+    </table>
+</div>
+
+

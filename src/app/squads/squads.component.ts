@@ -10,7 +10,7 @@ import { SquadService } from './../services/squad.service';
 })
 
 export class SquadsComponent implements OnInit{
-  squadName: String;
+  squadName: String = new String();
   squads: any[];
   
   constructor(
@@ -40,13 +40,5 @@ export class SquadsComponent implements OnInit{
       console.log('New Squad : ' + newSquad);
       this.squads.push(newSquad);
     });
-
-    //this.http.post('http://localhost:3000/squads/', { squadName : this.squadName}).subscribe(res => {
-    //console.log(res);  
-    //this.squads.push(this.squadName);
-    //},
-    //err => {
-    //  console.log('Error occured');
-    //});
   }
 }
