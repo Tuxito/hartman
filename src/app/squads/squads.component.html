@@ -15,7 +15,8 @@
     <table  class="table table-hover">
         <thead>
                 <tr>
-                    <th>Squad Name</th>           
+                    <th>Squad Name</th>  
+                    <th>Description</th>         
                 </tr>
         </thead>
         <tbody class="sortable">
@@ -23,7 +24,10 @@
                <td>
                    <a routerLink="detail/{{squad._id}}">
                      <span>{{squad.name}}</span>
-                  </a>
+                   </a>
+               </td> 
+               <td>
+                  <span>{{squad.description}}</span>                
                </td>            
             </tr>
         </tbody>            

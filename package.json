@@ -26,6 +26,7 @@
     "express": "^4.16.2",
     "mongoose": "^5.0.7",
     "ngx-bootstrap": "^2.0.2",
+    "open-iconic": "^1.1.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },

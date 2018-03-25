@@ -13,16 +13,12 @@ const topicsApi = require('./server/controller/TopicController');
 
 const app = express();
 
-// Parsers for POST data
-//app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: false }));
-
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 app.use('/squads', squadsApi);
-//app.use('/topics', topicsApi);
+app.use('/topics', topicsApi);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

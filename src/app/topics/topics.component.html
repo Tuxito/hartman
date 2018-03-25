@@ -18,18 +18,27 @@
     <h2 class=py-5>Topics</h2>
         
     <table  class="table table-hover">
-        <thead>
-                <tr>
-                    <th>Topic Name</th>           
-                </tr>
+        <thead>                            
+            <tr>
+                <th>Status</th>   
+                <th>Topic Name</th>           
+                <th>Description</th>         
+            </tr>               
         </thead>
-        <tbody class="sortable">
+        <tbody>
             <tr *ngFor="let topic of topics">
-               <td>
-                   <a routerLink="detail/{{topic._id}}">
-                     <span>{{topic.name}}</span>
-                  </a>
-               </td>            
+                <td>
+                    <label class="switch">                        
+                        <input type="checkbox" (click)="updateStatus(topic._id)" [checked]="topic.active">                        
+                        <span class="slider round"></span>
+                    </label>
+                </td>  
+                <td>                   
+                    <span>{{topic.name}}</span>
+                </td>  
+                <td>
+                    <span>{{topic.description}}</span>
+                </td>            
             </tr>
         </tbody>            
     </table>

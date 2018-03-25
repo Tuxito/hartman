@@ -14,7 +14,7 @@ import { TopicsComponent } from './topics/topics.component';
 import { SquadDetailComponent } from './squad-detail/squad-detail.component';
 import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 
-import { GearsService } from './gears/shared/gears.service';
+import { GearsService } from './services/gears.service';
 import { SquadService } from './services/squad.service';
 import { TopicService } from './services/topic.service';
 

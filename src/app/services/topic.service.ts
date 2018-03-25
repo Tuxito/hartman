@@ -24,4 +24,14 @@ export class TopicService {
     return this.http.post('http://localhost:3000/topics/', { topicName : topicName, description : description})
         .map((response: Response) => response.json());
   }
+
+/**
+ * Function to activate/desactivate a topic with given id
+ * @param id 
+ */
+  updateTopic(id : String){
+    console.log('Updating status ');      
+    return this.http.put('http://localhost:3000/topics/' + id,{})
+        .map((response: Response) => response.json()); 
+  }
 }

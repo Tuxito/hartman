@@ -28,6 +28,7 @@ export class TopicsComponent implements OnInit{
    */
   getTopics(){
     this.topicService.getTopics().subscribe(data => {
+      console.log(data);
       this.topics = data;
     });
   }
@@ -38,8 +39,18 @@ export class TopicsComponent implements OnInit{
    */
   createTopic() {
     this.topicService.createTopic(this.topicName, this.topicDescription).subscribe(newTopic => {
-      console.log('New Squad : ' + newTopic);
+      console.log('New topic : ' + newTopic);
       this.topics.push(newTopic);
+    });
+  }
+
+  /**
+   * Function to activate/desactivate the giben topic
+   * @param id 
+   */
+  updateStatus(id : String){    
+    this.topicService.updateTopic(id).subscribe(updatedTopic => {
+      console.log('Topic ' + id + ' updated');
     });
   }
 }
