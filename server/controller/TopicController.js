@@ -23,6 +23,22 @@ router.get('/',function (req, res) {
 });
 
 /**
+ * Method to retrieve all the squads
+ */
+router.get('/actives',function (req, res) {
+    console.log('Getting active topics list'); 
+
+    Topic.find({ active : true }, function (err, topics) {
+        if (err) {
+            return res.status(500).send("There was a problem retrieving actve topics.");
+        }
+
+        res.status(200).send(topics);
+    });
+});
+
+
+/**
  * Method to create a new squad in the database
  */
 router.post('/', function (req, res) {

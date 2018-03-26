@@ -1,0 +1,16 @@
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th class="text-center squadColor" scope="col" *ngFor="let squad of squads" >{{squad.name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let topic of topics;  let topicIndex = index">
+                <th scope="row">{{topic.name}}</th>
+                <td *ngFor="let squad of squads; let  squadIndex = index" (click)="setValue(topicIndex,squadIndex)">{{topicIndex}} {{squadIndex}}</td>
+            </tr>
+        </tbody>        
+    </table>
+</div>

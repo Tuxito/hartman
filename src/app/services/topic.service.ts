@@ -17,6 +17,15 @@ export class TopicService {
   }
 
   /**
+  * Function to retrieve all the active topics
+  */
+ getActiveTopics(){
+  return this.http.get('http://localhost:3000/topics/actives')  
+          .map((response: Response) => response.json())  
+}
+
+
+  /**
   * Function to create a new topic only with name and description
   * @param squadName 
   */
