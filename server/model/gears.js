@@ -8,7 +8,5 @@ var gearSchema = new Schema({
     profileImage: String
   });
 
-  var Gear = mongoose.model('gears', gearSchema);
-  
-  // make this available to our users in our Node applications
-  module.exports = Gear;
+  var Gear = mongoose.model('Gears', gearSchema);
+  module.exports = mongoose.model('Gears');

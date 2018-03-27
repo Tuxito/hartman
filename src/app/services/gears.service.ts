@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response} from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';  
 
 @Injectable()
 export class GearsService {
 
   constructor(private http: Http) { }
 
-  // Get all posts from the API
-  getAllGears() {
-    return this.http.get('/api/gears')
-      .map(res => res.json());
+  /**
+  * Function to retrieve all the gears
+  */
+  getAllGears(){
+    return this.http.get('http://localhost:3000/gears/')  
+            .map((response: Response) => response.json())  
   }
+
+  
 }

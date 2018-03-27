@@ -5,5 +5,5 @@ var SquadSchema = new mongoose.Schema({
   description : String,
 });
 
-mongoose.model('SquadSchema', SquadSchema);
-module.exports = mongoose.model('SquadSchema');
+mongoose.model('Squad', SquadSchema);
+module.exports = mongoose.model('Squad');

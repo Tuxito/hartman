@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-6 mb-3">        
                 <label for="inputEmail">Squad</label>
-                <select #selectElem class="custom-select" ng-model="squad">
+                <select #selectElem class="custom-select" [(ngModel)]="squad"  [ngModelOptions]="{standalone: true}">
                     <option *ngFor="let squad of squads" [value]="squad">
                         {{squad}}
                     </option>
