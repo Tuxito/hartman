@@ -1,5 +1,5 @@
 export class Squad {
-    id: String;
+    _id: String;
     name: String;
     description : String;
   }

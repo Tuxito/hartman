@@ -12,7 +12,7 @@ export class TopicService {
   * Function to retrieve all the topics
   */
   getTopics(){
-    return this.http.get('http://localhost:3000/topics/')  
+    return this.http.get('/topics/')  
             .map((response: Response) => response.json())  
   }
 
@@ -20,7 +20,7 @@ export class TopicService {
   * Function to retrieve all the active topics
   */
  getActiveTopics(){
-  return this.http.get('http://localhost:3000/topics/actives')  
+  return this.http.get('/topics/actives')  
           .map((response: Response) => response.json())  
 }
 
@@ -30,7 +30,7 @@ export class TopicService {
   * @param squadName 
   */
   createTopic(topicName : String, description : String){
-    return this.http.post('http://localhost:3000/topics/', { topicName : topicName, description : description})
+    return this.http.post('/topics/', { topicName : topicName, description : description})
         .map((response: Response) => response.json());
   }
 
@@ -40,7 +40,7 @@ export class TopicService {
  */
   updateTopic(id : String){
     console.log('Updating status ');      
-    return this.http.put('http://localhost:3000/topics/' + id,{})
+    return this.http.put('/topics/' + id,{})
         .map((response: Response) => response.json()); 
   }
 }

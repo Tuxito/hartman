@@ -12,7 +12,7 @@ export class GearsService {
   * Function to retrieve all the gears
   */
   getAllGears(){
-    return this.http.get('http://localhost:3000/gears/')  
+    return this.http.get('/gears/')  
             .map((response: Response) => response.json())  
   }
 

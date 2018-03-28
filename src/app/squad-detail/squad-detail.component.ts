@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
-import { Squad } from '../squads/squad';
+import { Squad } from '../dto/squad';
 import { SquadService } from '../services/squad.service';
 
 
@@ -36,17 +36,14 @@ export class SquadDetailComponent implements OnInit{
       let id = this.route.snapshot.paramMap.get('id');
       
       this.squadService.getSquad(id).subscribe(data => {      
-        this.squad.id = data._id;
-        this.squad.name = data.name;
-        this.squad.description = data.description;
+        this.squad = data as Squad;
       });
   }
 
   /**
    * Function to update the squad details
    */
-  updateSquad(){
-    console.log('Squad : ' + JSON.stringify(this.squad));     
+  updateSquad(){ 
     this.squadService.updateSquad(this.squad).subscribe(newSquad => {
       console.log('Squad updated');      
     });

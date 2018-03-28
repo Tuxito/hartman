@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { TopicService } from './../services/topic.service';
+import { Topic } from '../dto/topic';
 
 @Component({
   selector: 'app-topics',
@@ -12,7 +13,7 @@ import { TopicService } from './../services/topic.service';
 export class TopicsComponent implements OnInit{
   topicName: String = new String();
   topicDescription: String = new String();
-  topics: any[];
+  topics: Topic[];
   
   constructor(
     private http: HttpClient,
@@ -28,8 +29,8 @@ export class TopicsComponent implements OnInit{
    */
   getTopics(){
     this.topicService.getTopics().subscribe(data => {
-      console.log(data);
-      this.topics = data;
+      console.log('Getting topic list');
+      this.topics = data as Topic[];
     });
   }
 
@@ -40,7 +41,7 @@ export class TopicsComponent implements OnInit{
   createTopic() {
     this.topicService.createTopic(this.topicName, this.topicDescription).subscribe(newTopic => {
       console.log('New topic : ' + newTopic);
-      this.topics.push(newTopic);
+      this.topics.push(newTopic as Topic);
     });
   }
 

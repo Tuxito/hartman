@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http,Response, Headers, RequestOptions } from '@angular/http';   
    
 import { Observable } from 'rxjs/Observable';  
-import { Squad } from '../squads/squad';
+import { Squad } from '../dto/squad';
 
 @Injectable()  
 export class SquadService {  
@@ -13,7 +13,7 @@ export class SquadService {
    * Function to retrieve all the squads
    */
   getSquads(){
-    return this.http.get('http://localhost:3000/squads/')  
+    return this.http.get('/squads/')  
             .map((response: Response) => response.json())  
   }
 
@@ -22,7 +22,7 @@ export class SquadService {
    * @param id 
    */
   getSquad(id : String){          
-      return this.http.get('http://localhost:3000/squads/' + id)  
+      return this.http.get('/squads/' + id)  
             .map((response: Response) => response.json())              
   }  
  
@@ -31,7 +31,7 @@ export class SquadService {
    * @param squadName 
    */
   createSquad(squadName : String){
-    return this.http.post('http://localhost:3000/squads/', { squadName : squadName})
+    return this.http.post('/squads/', { squadName : squadName})
         .map((response: Response) => response.json());
   }
 
@@ -40,8 +40,8 @@ export class SquadService {
    * @param squad 
    */
   updateSquad(squad : Squad){
-    console.log('Squad updated ' + squad.id);      
-    return this.http.put('http://localhost:3000/squads/' + squad.id, { squad : squad})
+    console.log('Squad updated ' + squad._id);      
+    return this.http.put('/squads/' + squad._id, { squad : squad})
         .map((response: Response) => response.json());  
   }
 
