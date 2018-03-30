@@ -3,14 +3,20 @@
         <thead>
             <tr>
                 <th scope="col"></th>
-                <th class="text-center squadColor" scope="col" *ngFor="let squad of squads" >{{squad.name}}</th>
+                <th class="text-center squadColor" scope="col" *ngFor="let evaluation of healthCheck.evaluations" >{{evaluation.squad}}</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let topic of topics;  let topicIndex = index">
+            <tr *ngFor="let topic of topics;  let topicIndex = index ; trackBy : trackByTopicIndex">
                 <th scope="row">{{topic.name}}</th>
-                <td *ngFor="let squad of squads; let  squadIndex = index" (click)="setValue(topicIndex,squadIndex)">{{topicIndex}} {{squadIndex}}</td>
+                <td *ngFor="let evaluation of healthCheck.evaluations; let  squadIndex = index ; trackBy : trackBySquadIndex">
+                        <input [ngModelOptions]="{standalone: true}"
+                                class="form-control" name="evaluation{{squadIndex}}_topic{{topicIndex}}" id="evaluation{{squadIndex}}_topic{{topicIndex}}" 
+                                [(ngModel)]="healthCheck.evaluations[squadIndex].ev[topicIndex].score">    
+                </td>
             </tr>
         </tbody>        
     </table>
+
+    <button type="button" class="btn btn-success" (click)="saveHealthCheck()">Save HealthCheck</button>
 </div>
