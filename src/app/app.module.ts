@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule, } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AlertModule } from 'ngx-bootstrap';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 import { AppComponent } from './app.component';
 
 import { SideBarComponent } from './sidebar/sidebar.component';
@@ -26,7 +27,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-
 const appRoutes: Routes = [
   { path: 'healthChecks', component: HealthChecksComponent },
   { path: 'newHealthCheck', component: HealthCheckComponent },
@@ -37,7 +37,6 @@ const appRoutes: Routes = [
   { path: '',    redirectTo: '/healthChecks',    pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
-
 
 @NgModule({
   declarations: [

@@ -3,20 +3,42 @@
         <thead>
             <tr>
                 <th scope="col"></th>
-                <th class="text-center squadColor" scope="col" *ngFor="let evaluation of healthCheck.evaluations" >{{evaluation.squad}}</th>
+                <th class="text-center squadColor" scope="col" *ngFor="let squad of squads" >{{squad.name}}</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let topic of topics;  let topicIndex = index ; trackBy : trackByTopicIndex">
-                <th scope="row">{{topic.name}}</th>
-                <td *ngFor="let evaluation of healthCheck.evaluations; let  squadIndex = index ; trackBy : trackBySquadIndex">
-                        <input [ngModelOptions]="{standalone: true}"
-                                class="form-control" name="evaluation{{squadIndex}}_topic{{topicIndex}}" id="evaluation{{squadIndex}}_topic{{topicIndex}}" 
-                                [(ngModel)]="healthCheck.evaluations[squadIndex].ev[topicIndex].score">    
+            <tr *ngFor="let evaluation of healthCheck.evaluations">
+                <th scope="row">{{evaluation.topic}}</th>
+                <td *ngFor="let scoring of evaluation.ev">
+                    <div class="row">
+                        <div class="col" align="center">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                New Evaluation
+                            </button>
+                        </div>
+                    </div>                                        
+
+                    <!-- <input [ngModelOptions]="{standalone: true}" maxlength="2"
+                                class="form-control" name="squad{{scoring.squad}}_topic{{evaluation.topic}}" id="squad{{scoring.squad}}_topic{{evaluation.topic}}" 
+                                [(ngModel)]="scoring.score">     -->
                 </td>
             </tr>
         </tbody>        
     </table>
 
     <button type="button" class="btn btn-success" (click)="saveHealthCheck()">Save HealthCheck</button>
-</div>
+
+<!-- <div class="col">
+        <img src="assets/images/red.png"
+            style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
+    </div>
+
+    <div class="col">
+        <img src="assets/images/orange.png"
+            style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center"  alt="Squad logo">
+    </div>
+
+    <div class="col">
+        <img src="assets/images/green.png"
+            style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
+    </div> -->

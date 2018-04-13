@@ -1,7 +1,7 @@
 import { Scoring } from './scoring';
 
 export class Evaluation {
-  squad : String;
+  topic : String;
   ev : Scoring[];
 
   constructor(){

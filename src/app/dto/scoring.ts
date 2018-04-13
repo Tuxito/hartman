@@ -1,4 +1,4 @@
 export class Scoring {
-    indicator : String;
+    squad : String;
     score : number;
   }

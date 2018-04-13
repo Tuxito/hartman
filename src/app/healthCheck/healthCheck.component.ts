@@ -18,73 +18,65 @@ import { Scoring } from '../dto/scoring';
 
 export class HealthCheckComponent implements OnInit{
   topics : Topic[];
+  squads : Squad[];
 
   healthCheck  : HealthCheck;
-
 
   constructor(
     private http: HttpClient,
     private squadService : SquadService,
     private topicService : TopicService
   ) { 
-    this.healthCheck  = new HealthCheck();
+    
   }
 
-  ngOnInit() {
-    this.getSquads();
-    this.getTopics();     
-  }
+  ngOnInit() {     
+    this.healthCheck = new HealthCheck();
+    this.getTopics();          
+  }  
 
   /**
    * Function to retrieve all the active topics
    */
   getTopics(){
-    this.topicService.getActiveTopics().subscribe(data => {
-      this.topics = (data as Topic[]);
+    this.topicService.getActiveTopics().subscribe(topics => {
+      topics.forEach(topic => {
+        let evaluation = new Evaluation();
+        evaluation.topic = topic.name;
 
-      data.forEach(topic => {
-        let scoring = new Scoring();
-        scoring.indicator = (topic as Topic).name;
-        scoring.score = 0;
+        this.squadService.getSquads().subscribe(squads => {            
+          this.squads = (squads as Squad[]);
 
-        this.healthCheck.evaluations.forEach(squadEvaluations => {        
-          squadEvaluations.ev.push(scoring);
-        });  
+          squads.forEach(squad => {
+            let scoring = new Scoring();
+            scoring.squad = squad.name;
+            scoring.score = 0;
+
+            evaluation.ev.push(scoring);
+          });
+        });
+
+        this.healthCheck.evaluations.push(evaluation);
       });
     });
+
+    console.log(this.healthCheck);
   }
 
-  
   /**
    * Function to retrieve the squad list
    */
   getSquads(){
     this.squadService.getSquads().subscribe(squads => {            
-      squads.forEach(squad => {
-        let evaluation = new Evaluation();  
-        evaluation.squad = (squad as Squad).name;
-        this.healthCheck.evaluations.push(evaluation);
-      });
+
     });
   }
+
 
   /**
    * Function to set the value for a topic and team
    */
   saveHealthCheck(){
     console.log(this.healthCheck);
-  }
-
-  /**
-   * Function needed to track elements with into ngFor
-   * @param index 
-   * @param item 
-   */
-  trackByTopicIndex(index: number, item) {
-    return index;
-  }
-
-  trackBySquadIndex(index: number, item) {
-    return index;
   }
 }
