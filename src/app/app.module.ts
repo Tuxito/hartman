@@ -4,6 +4,7 @@ import { HttpModule, } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 
@@ -13,6 +14,7 @@ import { HealthChecksComponent } from './healthChecks/healthChecks.component';
 import { HealthChecksContentComponent } from './healthChecks-content/healthChecks-content.component';
 import { HealthCheckComponent } from './healthCheck/healthCheck.component';
 import { StatsComponent } from './stats-content/stats-content';
+
 
 import { SquadsComponent } from './squads/squads.component';
 import { TopicsComponent } from './topics/topics.component';
@@ -40,7 +42,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,    
     SideBarComponent,
     GearsComponent,
     HealthChecksComponent,
@@ -54,6 +56,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     AlertModule.forRoot(),
+    ModalModule.forRoot(),
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),

@@ -12,15 +12,13 @@
                 <td *ngFor="let scoring of evaluation.ev">
                     <div class="row">
                         <div class="col" align="center">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                New Evaluation
-                            </button>
+                            <button type="button" class="btn btn-primary" (click)="openModal(template, scoring)">Evaluate</button>  
+                            
+                            <input [ngModelOptions]="{standalone: true}" maxlength="2"
+                            class="form-control" name="squad{{scoring.squad}}_topic{{evaluation.topic}}" id="squad{{scoring.squad}}_topic{{evaluation.topic}}" 
+                            [(ngModel)]="scoring.score">
                         </div>
                     </div>                                        
-
-                    <!-- <input [ngModelOptions]="{standalone: true}" maxlength="2"
-                                class="form-control" name="squad{{scoring.squad}}_topic{{evaluation.topic}}" id="squad{{scoring.squad}}_topic{{evaluation.topic}}" 
-                                [(ngModel)]="scoring.score">     -->
                 </td>
             </tr>
         </tbody>        
@@ -28,17 +26,38 @@
 
     <button type="button" class="btn btn-success" (click)="saveHealthCheck()">Save HealthCheck</button>
 
-<!-- <div class="col">
-        <img src="assets/images/red.png"
-            style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
-    </div>
 
-    <div class="col">
-        <img src="assets/images/orange.png"
-            style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center"  alt="Squad logo">
-    </div>
+    <ng-template #template>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Create new evaluation for an indicator...</h4>
+        </div>
+    
+        <div class="modal-body text-center">
+          <div class="row">
+            <div class="col">
+                <img src="assets/images/red.png"
+                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
+            </div>
+    
+            <div class="col">
+                <img src="assets/images/orange.png"
+                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center"  alt="Squad logo">
+            </div>
+    
+            <div class="col">
+                <img src="assets/images/green.png"
+                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
+            </div>
+          </div>
+          
+          <input [ngModelOptions]="{standalone: true}" maxlength="2"
+                 class="form-control" name="modal_score" id="modal_score" 
+                 [(ngModel)]="evaluationScore.score">
 
-    <div class="col">
-        <img src="assets/images/green.png"
-            style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
-    </div> -->
+          <div class="row">
+            <button type="button" class="btn btn-default" (click)="confirm()" >Confirm</button>
+            <button type="button" class="btn btn-primary" (click)="decline()" >Cancel</button>
+          </div>
+          
+        </div>
+    </ng-template>

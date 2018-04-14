@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { TopicService } from '../services/topic.service';
@@ -10,6 +10,10 @@ import { HealthCheck } from '../dto/healthCheck';
 import { Evaluation } from '../dto/evaluation';
 import { Scoring } from '../dto/scoring';
 
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
+
 @Component({
   selector: 'app-health-check',
   templateUrl: './healthCheck.component.html',
@@ -17,15 +21,21 @@ import { Scoring } from '../dto/scoring';
 })
 
 export class HealthCheckComponent implements OnInit{
+  modalRef: BsModalRef;
+
   topics : Topic[];
   squads : Squad[];
 
   healthCheck  : HealthCheck;
 
+  evaluationScore : Scoring;
+  
+
   constructor(
     private http: HttpClient,
     private squadService : SquadService,
-    private topicService : TopicService
+    private topicService : TopicService,
+    private modalService: BsModalService
   ) { 
     
   }
@@ -72,6 +82,18 @@ export class HealthCheckComponent implements OnInit{
     });
   }
 
+  openModal(template: TemplateRef<any>, scoring : Scoring) {
+    this.evaluationScore = scoring;
+    this.modalRef = this.modalService.show(template);
+  }
+
+  confirm(): void {
+    this.modalRef.hide();
+  }
+ 
+  decline(): void {
+    this.modalRef.hide();
+  }
 
   /**
    * Function to set the value for a topic and team
