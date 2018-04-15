@@ -14,7 +14,7 @@ import { HealthChecksComponent } from './healthChecks/healthChecks.component';
 import { HealthChecksContentComponent } from './healthChecks-content/healthChecks-content.component';
 import { HealthCheckComponent } from './healthCheck/healthCheck.component';
 import { StatsComponent } from './stats-content/stats-content';
-
+import { TimerComponent } from './timer/timer.component'
 
 import { SquadsComponent } from './squads/squads.component';
 import { TopicsComponent } from './topics/topics.component';
@@ -28,6 +28,7 @@ import { TopicService } from './services/topic.service';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { CountdownPipe } from './pipes/countdown-pipe';
 
 const appRoutes: Routes = [
   { path: 'healthChecks', component: HealthChecksComponent },
@@ -52,7 +53,9 @@ const appRoutes: Routes = [
     SquadsComponent,
     TopicsComponent,
     SquadDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TimerComponent,
+    CountdownPipe
   ],
   imports: [
     AlertModule.forRoot(),

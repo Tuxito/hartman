@@ -29,7 +29,7 @@ export class HealthCheckComponent implements OnInit{
   healthCheck  : HealthCheck;
 
   evaluationScore : Scoring;
-  
+  tmpScore : number;
 
   constructor(
     private http: HttpClient,
@@ -83,8 +83,13 @@ export class HealthCheckComponent implements OnInit{
   }
 
   openModal(template: TemplateRef<any>, scoring : Scoring) {
-    this.evaluationScore = scoring;
+    this.tmpScore = scoring.score;
+    this.evaluationScore = scoring; 
     this.modalRef = this.modalService.show(template);
+  }
+
+  setScore(score : number){    
+    this.evaluationScore.score = score;
   }
 
   confirm(): void {
@@ -92,6 +97,7 @@ export class HealthCheckComponent implements OnInit{
   }
  
   decline(): void {
+    this.evaluationScore.score = this.tmpScore;
     this.modalRef.hide();
   }
 

@@ -14,6 +14,21 @@
                         <div class="col" align="center">
                             <button type="button" class="btn btn-primary" (click)="openModal(template, scoring)">Evaluate</button>  
                             
+                            <span ng-show="false">
+                                <img src="assets/images/red.png"
+                                     style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
+                            </span>
+
+                            <span ng-if="scoring.score === 5">
+                                <img src="assets/images/orange.png"
+                                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center"  alt="Squad logo">
+                            </span>
+
+                            <span ng-if="scoring.score === 10">
+                                <img src="assets/images/green.png"
+                                     style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
+                            </span>                                
+
                             <input [ngModelOptions]="{standalone: true}" maxlength="2"
                             class="form-control" name="squad{{scoring.squad}}_topic{{evaluation.topic}}" id="squad{{scoring.squad}}_topic{{evaluation.topic}}" 
                             [(ngModel)]="scoring.score">
@@ -29,35 +44,43 @@
 
     <ng-template #template>
         <div class="modal-header">
-            <h4 class="modal-title pull-left">Create new evaluation for an indicator...</h4>
+            <div class="row">
+                <h4 class="modal-title pull-left">Evaluate indicator...</h4>
+            </div>
+
+            <div class="row">
+                <app-timer></app-timer>
+            </div>
         </div>
-    
+
+        
         <div class="modal-body text-center">
           <div class="row">
             <div class="col">
                 <img src="assets/images/red.png"
-                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
+                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(0)">
             </div>
     
             <div class="col">
                 <img src="assets/images/orange.png"
-                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center"  alt="Squad logo">
+                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center"  alt="Squad logo" (click)="setScore(5)">
             </div>
     
             <div class="col">
                 <img src="assets/images/green.png"
-                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo">
+                    style="max-width:20px;  max-height:20px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(10)">
             </div>
-          </div>
-          
-          <input [ngModelOptions]="{standalone: true}" maxlength="2"
-                 class="form-control" name="modal_score" id="modal_score" 
-                 [(ngModel)]="evaluationScore.score">
-
-          <div class="row">
-            <button type="button" class="btn btn-default" (click)="confirm()" >Confirm</button>
-            <button type="button" class="btn btn-primary" (click)="decline()" >Cancel</button>
-          </div>
-          
+          </div>          
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary" (click)="decline()" >Cancel</button>
+                    </div>
+                
+                    <div class="col">                    
+                        <button type="button" class="btn btn-default" (click)="confirm()" >Confirm</button>
+                    </div>
+            </div>
         </div>
     </ng-template>
