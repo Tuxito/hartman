@@ -13,8 +13,8 @@
             </tr>               
         </thead>
         <tbody>
-            <tr>
-                HealthCheck date            
+            <tr *ngFor="let healthCheck of healthCheckList">            
+                {{healthCheck.date}}          
             </tr>
         </tbody>            
 </table>

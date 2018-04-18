@@ -1,7 +1,15 @@
 .squadColor{
-    background-color: #4dc44d;
+    background-color: #4e9659;
 }
 
 .img-center {
     margin:0 auto;
+}
+
+.modal-content {
+    width: 1024px;
+}
+
+.modal-dialog{
+    max-width: 1024px;
 }

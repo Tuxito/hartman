@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { TopicService } from '../services/topic.service';
 import { SquadService } from '../services/squad.service';
+import { HealthCheckService } from '../services/healthCheck.service';
 
 import { Squad } from '../dto/squad';
 import { Topic } from '../dto/topic';
@@ -35,7 +36,8 @@ export class HealthCheckComponent implements OnInit{
     private http: HttpClient,
     private squadService : SquadService,
     private topicService : TopicService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private healthCheckService : HealthCheckService
   ) { 
     
   }
@@ -106,5 +108,9 @@ export class HealthCheckComponent implements OnInit{
    */
   saveHealthCheck(){
     console.log(this.healthCheck);
+    this.healthCheckService.createHealthCheck(this.healthCheck).subscribe(newHealthCheck => {
+      console.log('New healthcheck created: ' + newHealthCheck);      
+    });
   }
+
 }

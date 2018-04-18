@@ -24,6 +24,7 @@ import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 import { GearsService } from './services/gears.service';
 import { SquadService } from './services/squad.service';
 import { TopicService } from './services/topic.service';
+import { HealthCheckService } from './services/healthCheck.service';
 
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -66,7 +67,7 @@ const appRoutes: Routes = [
     HttpModule,
     HttpClientModule
   ],
-  providers: [GearsService, SquadService, TopicService],
+  providers: [GearsService, SquadService, TopicService, HealthCheckService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
