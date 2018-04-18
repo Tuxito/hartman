@@ -87,13 +87,20 @@
 
         <div class="modal-footer">
             <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-primary" (click)="decline()" >Cancel</button>
-                    </div>
-                
-                    <div class="col">                    
-                        <button type="button" class="btn btn-default" (click)="confirm()" >Confirm</button>
-                    </div>
+
+                <div class="col">
+                    <img src="assets/images/green.png"
+                         style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(10)">
+                </div>
+
+
+                <div class="col">
+                    <button type="button" class="btn btn-primary" (click)="decline()" >Cancel</button>
+                </div>
+            
+                <div class="col">                    
+                    <button type="button" class="btn btn-default" (click)="confirm()" >Confirm</button>
+                </div>
             </div>
         </div>
     </ng-template>
