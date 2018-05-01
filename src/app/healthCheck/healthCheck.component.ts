@@ -32,6 +32,8 @@ export class HealthCheckComponent implements OnInit{
   evaluationScore : Scoring;
   tmpScore : number;
 
+  selectedScore : String = "assets/images/red.png";
+
   constructor(
     private http: HttpClient,
     private squadService : SquadService,
@@ -85,13 +87,15 @@ export class HealthCheckComponent implements OnInit{
   }
 
   openModal(template: TemplateRef<any>, scoring : Scoring) {
+    this.selectedScore = "assets/images/red.png";
     this.tmpScore = scoring.score;
     this.evaluationScore = scoring; 
     this.modalRef = this.modalService.show(template);
   }
 
-  setScore(score : number){    
+  setScore(score : number, imagePath : String){    
     this.evaluationScore.score = score;
+    this.selectedScore = imagePath;
   }
 
   confirm(): void {
@@ -101,6 +105,45 @@ export class HealthCheckComponent implements OnInit{
   decline(): void {
     this.evaluationScore.score = this.tmpScore;
     this.modalRef.hide();
+  }
+
+  /**
+   * Tunction to set the image in the ealuation grid
+   * @param score 
+   */
+  checkScore(score : Number){
+    let scoreImage : String;
+    switch(score) { 
+      case 0: { 
+        scoreImage = "assets/images/red.png";
+        break
+      } 
+      case 2: { 
+        scoreImage = "assets/images/red-up.png";
+        break
+      }        
+      case 3: { 
+        scoreImage = "assets/images/orange-down.png";
+        break
+      }   
+      case 5: { 
+        scoreImage = "assets/images/orange.png";
+        break; 
+      }   
+      case 7: { 
+        scoreImage = "assets/images/orange-up.png";
+        break
+      }   
+      case 8: { 
+        scoreImage = "assets/images/green-down.png";
+        break
+      }   
+      case 10: { 
+        scoreImage = "assets/images/green.png";
+        break
+      }   
+   }
+   return scoreImage;
   }
 
   /**

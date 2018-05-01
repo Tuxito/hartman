@@ -11,12 +11,13 @@
                 <th scope="row">{{evaluation.topic}}</th>
                 <td *ngFor="let scoring of evaluation.ev">
                     <div class="row">
-                        <div class="col" align="center">
-                            <button type="button" class="btn btn-primary" (click)="openModal(template, scoring)">Evaluate</button>  
-                                                        
+                        <div class="col" align="center">                          
                             <input [ngModelOptions]="{standalone: true}" maxlength="2" type="hidden"
                             class="form-control" name="squad{{scoring.squad}}_topic{{evaluation.topic}}" id="squad{{scoring.squad}}_topic{{evaluation.topic}}" 
                             [(ngModel)]="scoring.score">
+
+                            <img (click)="openModal(template, scoring)" [src]="checkScore(scoring.score)" 
+                                 style="max-width:60px;  max-height:60px;" class="figure-img img-fluid img-center score" alt="Squad logo">
                         </div>
                     </div>                                        
                 </td>
@@ -27,8 +28,6 @@
     <div class="row float-right">
         <button type="button" class="btn btn-success" (click)="saveHealthCheck()">Save HealthCheck</button>
     </div>
-    
-
 
     <ng-template #template>
         <div class="modal-header">
@@ -46,41 +45,48 @@
           <div class="row">
             <div class="col">
                 <img src="assets/images/red.png"
-                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(0)">
+                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center score" 
+                    alt="Squad logo" (click)="setScore(0,'assets/images/red.png')">
             </div>
     
             <!-- Up tendence -->
             <div class="col">
                 <img src="assets/images/red-up.png"
-                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(2)">
+                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center score" 
+                    alt="Squad logo" (click)="setScore(2,'assets/images/red-up.png')">
             </div>
 
             <!-- Down tendence -->
             <div class="col">
                 <img src="assets/images/orange-down.png"
-                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(3)">
+                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center score"
+                    alt="Squad logo" (click)="setScore(3,'assets/images/orange-down.png')">
             </div>
 
             <div class="col">
                 <img src="assets/images/orange.png"
-                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center"  alt="Squad logo" (click)="setScore(5)">
+                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center score"
+                    alt="Squad logo" (click)="setScore(5,'assets/images/orange.png')">
             </div>
     
             <!-- Up tendence -->
             <div class="col">
                 <img src="assets/images/orange-up.png"
-                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(7)">
+                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center score"
+                    alt="Squad logo" (click)="setScore(7,'assets/images/orange-up.png')">
             </div>
 
             <!-- Down tendence -->
             <div class="col">
                 <img src="assets/images/green-down.png"
-                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(8)">
+                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center score" 
+                    alt="Squad logo" (click)="setScore(8,'assets/images/green-down.png')">
             </div>
 
             <div class="col">
                 <img src="assets/images/green.png"
-                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(10)">
+                    style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center score"
+                    alt="Squad logo" (click)="setScore(10,'assets/images/green.png')">
             </div>
           </div>          
         </div>
@@ -89,8 +95,8 @@
             <div class="row">
 
                 <div class="col">
-                    <img src="assets/images/green.png"
-                         style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center" alt="Squad logo" (click)="setScore(10)">
+                    <img [src]="selectedScore"
+                         style="max-width:40px;  max-height:40px;" class="figure-img img-fluid img-center" alt="Squad logo">
                 </div>
 
 
