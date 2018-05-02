@@ -77,15 +77,6 @@ export class HealthCheckComponent implements OnInit{
     console.log(this.healthCheck);
   }
 
-  /**
-   * Function to retrieve the squad list
-   */
-  getSquads(){
-    this.squadService.getSquads().subscribe(squads => {            
-
-    });
-  }
-
   openModal(template: TemplateRef<any>, scoring : Scoring) {
     this.selectedScore = "assets/images/red.png";
     this.tmpScore = scoring.score;

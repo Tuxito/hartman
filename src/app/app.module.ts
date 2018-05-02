@@ -14,6 +14,8 @@ import { HealthChecksComponent } from './healthChecks/healthChecks.component';
 import { HealthChecksContentComponent } from './healthChecks-content/healthChecks-content.component';
 import { HealthCheckComponent } from './healthCheck/healthCheck.component';
 
+import { SquadSelectionComponent } from './squad-selection/squad-selection.component'
+
 import { StatsComponent } from './stats-content/stats-content';
 import { TimerComponent } from './timer/timer.component';
 
@@ -60,7 +62,8 @@ const appRoutes: Routes = [
     SquadDetailComponent,
     PageNotFoundComponent,
     TimerComponent,
-    CountdownPipe
+    CountdownPipe,
+    SquadSelectionComponent
   ],
   imports: [
     AlertModule.forRoot(),

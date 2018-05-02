@@ -12,32 +12,11 @@
             
         </div> 
         
-        <div class="row">
-            <div class="col-md-6 mb-3">        
-                <label for="inputEmail">Squad</label>
-                <select #selectElem class="custom-select" [(ngModel)]="squad"  [ngModelOptions]="{standalone: true}">
-                    <option *ngFor="let squad of squads" [value]="squad">
-                        {{squad}}
-                    </option>
-                </select>
-            </div>
-        </div> 
+        <app-squad-selection></app-squad-selection>    
     
         <button type="button" class="btn btn-success" (click)="createGear()">Create Gear</button>
     </form>
 
     <h2 class=py-5>Gears</h2>
-        
-    <!-- <table class="table table-hover">
-        <thead>
-                <tr>
-                    <th>Gear Name</th>           
-                </tr>
-        </thead>
-        <tbody>
-            <tr  *ngFor="let gear of gears">
-               <td>{{gear}}</td>            
-            </tr>
-        </tbody>            
-    </table> -->
+
 </div>
