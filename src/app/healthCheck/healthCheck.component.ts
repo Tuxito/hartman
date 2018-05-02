@@ -27,6 +27,9 @@ export class HealthCheckComponent implements OnInit{
   topics : Topic[];
   squads : Squad[];
 
+  showGrid : boolean = true;
+
+
   healthCheck  : HealthCheck;
 
   evaluationScore : Scoring;
@@ -54,6 +57,7 @@ export class HealthCheckComponent implements OnInit{
    */
   getTopics(){
     this.topicService.getActiveTopics().subscribe(topics => {
+
       topics.forEach(topic => {
         let evaluation = new Evaluation();
         evaluation.topic = topic.name;
@@ -72,9 +76,9 @@ export class HealthCheckComponent implements OnInit{
 
         this.healthCheck.evaluations.push(evaluation);
       });
-    });
 
-    console.log(this.healthCheck);
+      this.showGrid = topics.length > 0;
+    }); 
   }
 
   openModal(template: TemplateRef<any>, scoring : Scoring) {
