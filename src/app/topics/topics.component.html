@@ -26,10 +26,10 @@
             </tr>               
         </thead>
         <tbody>
-            <tr *ngFor="let topic of topics">
-                <td>
+            <tr *ngFor="let topic of topics"> 
+                <td> 
                     <label class="switch">                        
-                        <input type="checkbox" (click)="updateStatus(topic._id)" [checked]="topic.active">                        
+                        <input type="checkbox" (click)="updateStatus(topic._id)" [checked]="topic.active">                 
                         <span class="slider round"></span>
                     </label>
                 </td>  
