@@ -13,8 +13,9 @@ import { GearsComponent } from './gears/gears.component';
 import { HealthChecksComponent } from './healthChecks/healthChecks.component';
 import { HealthChecksContentComponent } from './healthChecks-content/healthChecks-content.component';
 import { HealthCheckComponent } from './healthCheck/healthCheck.component';
+
 import { StatsComponent } from './stats-content/stats-content';
-import { TimerComponent } from './timer/timer.component'
+import { TimerComponent } from './timer/timer.component';
 
 import { SquadsComponent } from './squads/squads.component';
 import { TopicsComponent } from './topics/topics.component';
@@ -31,9 +32,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CountdownPipe } from './pipes/countdown-pipe';
 
+import { ChartsModule } from 'ng2-charts';
+
 const appRoutes: Routes = [
   { path: 'healthChecks', component: HealthChecksComponent },
   { path: 'newHealthCheck', component: HealthCheckComponent },
+  { path: 'stats',      component: StatsComponent },
   { path: 'squads',      component: SquadsComponent },
   { path: 'squads/detail/:id', component: SquadDetailComponent },
   { path: 'topics',      component: TopicsComponent },
@@ -65,7 +69,8 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [GearsService, SquadService, TopicService, HealthCheckService],
   bootstrap: [AppComponent]
