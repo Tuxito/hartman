@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SquadService } from '../services/squad.service';
 import { Squad } from '../dto/squad';
@@ -11,8 +11,8 @@ import { Squad } from '../dto/squad';
 
 export class SquadSelectionComponent {
 
+  @Input() origin : String;
   squads : Squad[]; 
-  squad : String;
 
   constructor(private http: HttpClient,
               private squadService : SquadService,) { }
