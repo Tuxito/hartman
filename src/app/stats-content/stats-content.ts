@@ -12,14 +12,16 @@ export class StatsComponent {
   };
 
   chartData = [
-    { data: [330, 600, 260, 700], label: 'Account A' },
-    { data: [120, 455, 100, 340], label: 'Account B' },
-    { data: [45, 67, 800, 500], label: 'Account C' }
+    { data: [0, 3, 10, 8], label: 'Delivery value'},
+    { data: [5, 7, 5, 10], label: 'Easy to release'},
+    { data: [7, 5, 8, 5], label: 'Fun'},
+    { data: [8, 3, 7, 8], label: 'Health Codebase'},
+    { data: [3, 8, 5, 7], label: 'Learning'},
+    { data: [5, 5, 3, 7], label: 'Mission'},
+    { data: [7, 7, 5, 3], label: 'Speed'},
+    { data: [0, 10, 7, 8], label: 'Teamwork'}
   ];
 
   chartLabels = ['January', 'February', 'Mars', 'April'];
 
-  onChartClick(event) {
-    console.log(event);
-  }
 }

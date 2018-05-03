@@ -21,3 +21,7 @@ th{
 img.score { 
     cursor: pointer; 
 }
+
+.error_msg{
+    color : #e71616;
+}

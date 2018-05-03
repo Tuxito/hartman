@@ -1,3 +1,10 @@
+<div *ngIf="!showGrid" class="container">  
+    <div class="row error_msg">   
+        <h4>No Topics or Squads defined. Please, create squads and topics in order to do the healthcheck</h4>
+    </div>
+</div>
+
+    
 <div *ngIf="showGrid" class="container">     
     <table class="table table-bordered">
         <thead>
@@ -26,7 +33,7 @@
     </table>
 
     <div class="row float-right">
-        <button type="button" class="btn btn-success" (click)="saveHealthCheck()">Save HealthCheck</button>
+        <button type="button" class="btn btn-success" (click)="saveHealthCheck()">Save HealthCheck</button>       
     </div>
 </div>
 

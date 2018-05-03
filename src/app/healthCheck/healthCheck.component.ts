@@ -27,8 +27,7 @@ export class HealthCheckComponent implements OnInit{
   topics : Topic[];
   squads : Squad[];
 
-  showGrid : boolean = true;
-
+  showGrid : boolean = false;
 
   healthCheck  : HealthCheck;
 
@@ -62,7 +61,10 @@ export class HealthCheckComponent implements OnInit{
         let evaluation = new Evaluation();
         evaluation.topic = topic.name;
 
-        this.squadService.getSquads().subscribe(squads => {            
+        this.squadService.getSquads().subscribe(squads => {
+          // control if there are squads created
+          this.showGrid = squads.length > 0;
+          
           this.squads = (squads as Squad[]);
 
           squads.forEach(squad => {
@@ -77,7 +79,8 @@ export class HealthCheckComponent implements OnInit{
         this.healthCheck.evaluations.push(evaluation);
       });
 
-      this.showGrid = topics.length > 0;
+      // only show grid if there are topics actives and squad created
+      this.showGrid = (topics.length > 0) &&  this.showGrid;
     }); 
   }
 

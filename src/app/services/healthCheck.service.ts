@@ -23,8 +23,6 @@ export class HealthCheckService {
      * @param squadName 
      */
     createHealthCheck(healthCheck : HealthCheck){
-        console.log("Healthcheck en el service");
-        console.log(healthCheck);
         return this.http.post('/healthChecks/', { healthCheck : healthCheck})
             .map((response: Response) => response.json());
     }   
