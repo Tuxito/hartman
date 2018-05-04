@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SquadService } from '../services/squad.service';
 import { Squad } from '../dto/squad';
@@ -11,7 +11,7 @@ import { Squad } from '../dto/squad';
 
 export class SquadSelectionComponent {
 
-  @Input() origin : String;
+  @Output() onSelect = new EventEmitter<String>()
   squads : Squad[]; 
 
   constructor(private http: HttpClient,
@@ -28,5 +28,9 @@ export class SquadSelectionComponent {
     this.squadService.getSquads().subscribe(squads => { 
       this.squads = squads as Squad[];
     });
+  }
+
+  emitSelectedSquad(){
+    this.onSelect.emit("selected");
   }
 }

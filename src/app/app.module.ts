@@ -13,6 +13,7 @@ import { GearsComponent } from './gears/gears.component';
 import { HealthChecksComponent } from './healthChecks/healthChecks.component';
 import { HealthChecksContentComponent } from './healthChecks-content/healthChecks-content.component';
 import { HealthCheckComponent } from './healthCheck/healthCheck.component';
+import { HealthCheckDetailComponent } from './healthCheck-detail/healthCheck-detail.component';
 
 import { SquadSelectionComponent } from './squad-selection/squad-selection.component'
 
@@ -37,6 +38,7 @@ import { CountdownPipe } from './pipes/countdown-pipe';
 import { ChartsModule } from 'ng2-charts';
 
 const appRoutes: Routes = [
+  { path: 'healthChecks/detail/:id', component: HealthCheckDetailComponent },
   { path: 'healthChecks', component: HealthChecksComponent },
   { path: 'newHealthCheck', component: HealthCheckComponent },
   { path: 'stats',      component: StatsComponent },
@@ -56,6 +58,7 @@ const appRoutes: Routes = [
     HealthChecksComponent,
     HealthChecksContentComponent,
     HealthCheckComponent,
+    HealthCheckDetailComponent,
     StatsComponent,
     SquadsComponent,
     TopicsComponent,

@@ -16,7 +16,9 @@
             <tbody>
                 <tr *ngFor="let healthCheck of healthCheckList">            
                         <td> 
-                             {{healthCheck.date | date : 'fullDate'}}          
+                            <a routerLink="detail/{{healthCheck._id}}">
+                                {{healthCheck.date | date : 'fullDate'}}          
+                             </a>
                         </td>
                 </tr>
             </tbody>            

@@ -26,4 +26,5 @@ export class HealthCheckService {
         return this.http.post('/healthChecks/', { healthCheck : healthCheck})
             .map((response: Response) => response.json());
     }   
+
 }

@@ -24,4 +24,7 @@ export class StatsComponent {
 
   chartLabels = ['January', 'February', 'Mars', 'April'];
 
+  squadSelected(squadSelected : String){
+    alert(squadSelected);
+  }
 }

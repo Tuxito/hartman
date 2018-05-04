@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 import { HealthCheckService } from './../services/healthCheck.service';
 import { HealthCheck } from '../dto/healthCheck';
@@ -10,12 +9,11 @@ import { HealthCheck } from '../dto/healthCheck';
   styleUrls: ['./healthChecks-content.component.css']
 })
 
-export class HealthChecksContentComponent {
+export class HealthChecksContentComponent implements OnInit{
 
   healthCheckList : HealthCheck[];
 
   constructor(
-    private http: HttpClient,
     private healthCheckService : HealthCheckService
   ) { }
   

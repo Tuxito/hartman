@@ -152,6 +152,7 @@ export class HealthCheckComponent implements OnInit{
     this.healthCheckService.createHealthCheck(this.healthCheck).subscribe(newHealthCheck => {
       console.log('New healthcheck created: ' + newHealthCheck);      
     });
+    alert("Healthcheck successfully created");
   }
 
 }
