@@ -8,7 +8,7 @@ router.use(bodyParser.json());
 var HealthCheck = require('../model/healthCheck');
 
 /**
- * Method to retrieve all the squads
+ * Method to retrieve all the healthchecks
  */
 router.get('/',function (req, res) {
     console.log('Getting healthcheck list'); 
@@ -22,8 +22,19 @@ router.get('/',function (req, res) {
     });
 });
 
+router.get('/:id', function(req, res, next) {
+    console.log('Getting healthcheck ' + req.params.id); 
+    HealthCheck.findById(req.params.id, function (err, healthCheck) {
+      console.log("****************")
+      console.log(healthCheck);
+      console.log("****************")
+      if (err) return next(err);
+      res.json(healthCheck);
+    });
+});
+
 /**
- * Method to create a new squad in the database
+ * Method to create a new healthcheck in the database
  */
 router.post('/', function (req, res) {
     console.log('Creating healthCheck');

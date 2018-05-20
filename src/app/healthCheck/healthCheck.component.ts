@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 import { TopicService } from '../services/topic.service';
 import { SquadService } from '../services/squad.service';
@@ -38,6 +39,7 @@ export class HealthCheckComponent implements OnInit{
 
   constructor(
     private http: HttpClient,
+    private location : Location,
     private squadService : SquadService,
     private topicService : TopicService,
     private modalService: BsModalService,
@@ -148,11 +150,14 @@ export class HealthCheckComponent implements OnInit{
    * Function to set the value for a topic and team
    */
   saveHealthCheck(){
-    console.log(this.healthCheck);
     this.healthCheckService.createHealthCheck(this.healthCheck).subscribe(newHealthCheck => {
       console.log('New healthcheck created: ' + newHealthCheck);      
     });
-    alert("Healthcheck successfully created");
+    this.goBack();
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

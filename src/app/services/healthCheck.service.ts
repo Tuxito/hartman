@@ -18,6 +18,11 @@ export class HealthCheckService {
                 .map((response: Response) => response.json())  
     }
 
+    getHealthCheckById(id : String){
+        return this.http.get('/healthChecks/' + id)  
+            .map((response: Response) => response.json())
+    }
+
     /**
      * Function to create a new topic only with name and description
      * @param squadName 

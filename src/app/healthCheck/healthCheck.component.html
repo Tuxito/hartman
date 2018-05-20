@@ -32,8 +32,15 @@
         </tbody>        
     </table>
 
-    <div class="row float-right">
-        <button type="button" class="btn btn-success" (click)="saveHealthCheck()">Save HealthCheck</button>       
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-success" (click)="goBack()">Go Back</button>       
+        </div>
+        <div class="col">
+            <span class="float-right">
+                <button type="button" class="btn btn-success" (click)="saveHealthCheck()">Save HealthCheck</button>     
+            </span>
+        </div>
     </div>
 </div>
 
