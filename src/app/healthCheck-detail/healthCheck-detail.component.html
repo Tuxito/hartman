@@ -2,4 +2,10 @@
 
     Detail
 
+    <div *ngFor="let evaluation of healthCheck.evaluations">
+        {{evaluation.topic}}
+        <div *ngFor="let ev of evaluation.ev">
+                {{ev.squad}} - {{ev.score}}
+        </div>
+    </div>
 </div>

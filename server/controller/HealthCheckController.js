@@ -38,11 +38,9 @@ router.get('/:id', function(req, res, next) {
  */
 router.post('/', function (req, res) {
     console.log('Creating healthCheck');
-    console.log(req.body.healthCheck.evaluations);
-
     HealthCheck.create({
             date : req.body.healthCheck.date,
-            ev : req.body.healthCheck.evaluations
+            evaluations : req.body.healthCheck.evaluations
         },
         function (err, healthCheck) {
             if (err) {

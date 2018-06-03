@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { HealthCheckService } from './../services/healthCheck.service';
+import { HealthCheck } from '../dto/healthCheck';
 
 @Component({ 
   selector: 'app-health-check-detail',
@@ -10,6 +11,8 @@ import { HealthCheckService } from './../services/healthCheck.service';
 })
 
 export class HealthCheckDetailComponent implements OnInit {
+
+  healthCheck : HealthCheck[];
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +29,9 @@ export class HealthCheckDetailComponent implements OnInit {
   getHealthCheck(){
     let id = this.route.snapshot.paramMap.get('id');
 
-    this.healthCheckService.getHealthCheckById(id).subscribe(data => {      
+    this.healthCheckService.getHealthCheckById(id).subscribe(data => { 
+      this.healthCheck = data as HealthCheck[];
+      
       console.log(data);
     });
   }
