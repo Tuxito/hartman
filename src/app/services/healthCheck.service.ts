@@ -19,8 +19,9 @@ export class HealthCheckService {
     }
 
     getHealthCheckById(id : String){
+        
         return this.http.get('/healthChecks/' + id)  
-            .map((response: Response) => response.json())
+                            .map((response: Response) => response.json());                
     }
 
     /**
